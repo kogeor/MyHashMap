@@ -11,16 +11,15 @@ import java.io.PrintStream;
 
 public class TestMyHashMap {
     MyHashMap myHashMap = new MyHashMap();
-    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
 
-    @BeforeEach
-    public void setUpStreams() {
-        System.setOut(new PrintStream(output));
-    }
 
-    @AfterEach
-    public void cleanUpStreams() {
-        System.setOut(null);
+    @Test
+    public void testAdd() {
+        myHashMap.put(120, "First");
+        myHashMap.put(324, "Second");
+        myHashMap.put(2345, "Third");
+        myHashMap.put(12320, "AnotherOne");
+        Assertions.assertEquals("{120=First, 12320=AnotherOne, 324=Second, 2345=Third}",myHashMap.toString());
     }
 
     @Test
@@ -35,10 +34,15 @@ public class TestMyHashMap {
 
     @Test
     public void testSort() {
-        String[] array = {"Andree", "Leana", "Faviola", "Loyce", "Quincy", "Milo", "Jamila", "Toccara", "Nelda", "Blair", "Ernestine", "Chara", "Kareen", "Monty", "Rene", "Cami", "Winifred", "Tara", "Demetrice", "Azucena"};
+        String[] array = {"Andree", "Leana", "Faviola", "Loyce", "Quincy",
+                "Milo", "Jamila", "Toccara", "Nelda", "Blair", "Ernestine",
+                "Chara", "Kareen", "Monty", "Rene", "Cami", "Winifred",
+                "Tara", "Demetrice", "Azucena"};
         QuickSort<String> sorter = new QuickSort<>();
         sorter.quicksort(array, 0, array.length - 1);
-        System.out.println(java.util.Arrays.toString(array));
-        Assertions.assertEquals("[Andree, Azucena, Blair, Cami, Chara, Demetrice, Ernestine, Faviola, Jamila, Kareen, Leana, Loyce, Milo, Monty, Nelda, Quincy, Rene, Tara, Toccara, Winifred]\r\n", output.toString());
+        Assertions.assertEquals("[Andree, Azucena, Blair, Cami, Chara," +
+                " Demetrice, Ernestine, Faviola, Jamila, Kareen, Leana, Loyce, Milo" +
+                ", Monty, Nelda, Quincy, Rene, Tara, Toccara, Winifred" +
+                "]", java.util.Arrays.toString(array));
     }
 }
