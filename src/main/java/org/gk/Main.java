@@ -1,4 +1,6 @@
-package org.gk;public class Main {
+package org.gk;
+
+public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
