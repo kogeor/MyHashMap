@@ -7,31 +7,42 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Collection;
 import java.util.Objects;
-
+/** Класс служит для создания хранения HashMap, имплементирует интерфейса MAP
+ @author Georgiy Koptlov
+ @version 1.0
+ 22.09.2022.
+ */
 public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> {
+    /** Класс, отвечающий за хранение элементов мапы, имплементируется  аналогичное интерфейса "Map.Entry"
+     */
     private static class Pair<K, V> implements Map.Entry<K, V> {
         private final K key;
         private V value;
-
+        /** Конструктор для пары
+         */
         public Pair(K key, V value) {
             this.key = key;
             this.value = value;
         }
-
+        /** Метод получения ключа
+         */
         public K getKey() {
             return key;
         }
-
+        /** Метод получения значения
+         */
         public V getValue() {
             return value;
         }
-
+        /** Метод задания значения
+         */
         public V setValue(V newValue) {
             V old = value;
             value = newValue;
             return old;
         }
-
+        /** Метод сравнения для пар
+         */
         @Override
         public boolean equals(Object o) {
             if (!(o instanceof Pair))
@@ -40,12 +51,14 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
             Pair pair = (Pair) o;
             return key.equals(pair.key) && value.equals(pair.value);
         }
-
+        /** Метод перевода в строку для пары
+         */
         @Override
         public String toString() {
             return key + "=" + value;
         }
-
+        /** Метод для получения хэшкода
+         */
         @Override
         public int hashCode() {
             return Objects.hashCode(key) ^ Objects.hashCode(value);
@@ -55,7 +68,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
     private ArrayList<LinkedList<Pair<K, V>>> table;
     private int size;
-
+    /** Конструктор для мапы
+     */
     public MyHashMap() {
         table = new ArrayList<>();
 
@@ -65,7 +79,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
         size = 0;
     }
-
+    /** Конструктор для мапы с использованием другой мапы
+     */
     public MyHashMap(Map<? extends K, ? extends V> map) {
         this();
         putAll(map);
@@ -75,7 +90,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
         int index = Math.abs(key.hashCode() % table.size());
         return table.get(index);
     }
-
+    /** Метод добавления пары ключ-значение с проверкой на наличие ключа в мапе
+     */
     public V put(K key, V value) {
         LinkedList<Pair<K, V>> list = getList(key);
 
@@ -95,7 +111,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
         return old;
     }
-
+    /** Метод для удаления
+     */
     public V remove(Object obj) {
         K key = (K) obj;
         V removedValue = null;
@@ -114,7 +131,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
         return removedValue;
     }
-
+    /** Метод получения значения пол ключу
+     */
     public V get(Object key) {
         LinkedList<Pair<K, V>> list = getList((K) key);
         for (Pair<K, V> pair : list) {
@@ -124,7 +142,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
         return null;
     }
-
+    /** Метод проверки на наличие ключа
+     */
     public boolean containsKey(Object key) {
         LinkedList<Pair<K, V>> list = getList((K) key);
         for (Pair<K, V> pair : list)
@@ -133,7 +152,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
         return false;
     }
-
+    /** Метод проверки на наличие значения
+     */
     public boolean containsValue(Object value) {
         for (LinkedList<Pair<K, V>> list : table)
             for (Pair<K, V> pair : list)
@@ -142,7 +162,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
         return false;
     }
-
+    /** Метод для получения набора пар
+     */
     public Set<Entry<K, V>> entrySet() {
         Set<Map.Entry<K, V>> set = new HashSet<>();
 
@@ -151,7 +172,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
         }
         return set;
     }
-
+    /** Метод для получения набора ключей
+     */
     public Set<K> keySet() {
         Set<K> set = new HashSet<>();
         for (LinkedList<Pair<K, V>> list : table) {
@@ -161,7 +183,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
         }
         return set;
     }
-
+    /** Метод для получения набора значений
+     */
     public Collection<V> values() {
         Collection<V> values = new ArrayList<>();
         for (LinkedList<Pair<K, V>> list : table)
@@ -170,7 +193,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
         return values;
     }
-
+    /** Метод вставки в мапу данных из другой мапы
+     */
     @Override
     public void putAll(Map<? extends K, ? extends V> map) {
         for (Map.Entry<?, ?> entry : map.entrySet()) {
@@ -179,7 +203,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
             put((K) key, (V) value);
         }
     }
-
+    /** Метод очистки мапы
+     */
     @Override
     public void clear() {
         for (LinkedList<Pair<K, V>> list : table)
@@ -187,15 +212,18 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
         size = 0;
     }
-
+    /** Метод для получения размера мапы
+     */
     public int size() {
         return size;
     }
-
+    /** Метод для проверки на пустую мапу
+     */
     public boolean isEmpty() {
         return size() == 0;
     }
-
+    /** Метод для сортировки. Пока не работает как надо
+     */
     public void sort() {
         K[] array = (K[]) keySet().toArray();
         QuickSort<K> sorter = new QuickSort<>();
@@ -218,7 +246,8 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
         return true;
     }
-
+    /** Метод для перевода мапы в текст, содержащий пары значения в следующем виде: {Ключ1=значение1, Ключ2=значение2}
+     */
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
