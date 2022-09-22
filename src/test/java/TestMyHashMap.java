@@ -18,7 +18,19 @@ public class TestMyHashMap {
    }
 
    @Test
-   public void testSort() {
+   public void testAdd() {
+
+      myHashMap.put(120, "First");
+      myHashMap.put(324, "Second");
+      myHashMap.put(2345, "Third");
+      myHashMap.put(12320, "AnotherOne");
+      Assertions.assertEquals("{120=First, 12320=AnotherOne, 324=Second, 2345=Third}", myHashMap.toString());
+   }
+
+
+
+   @Test
+   public void testQuickSort() {
       String[] array = {"Andree", "Leana", "Faviola", "Loyce", "Quincy",
               "Milo", "Jamila", "Toccara", "Nelda", "Blair", "Ernestine",
               "Chara", "Kareen", "Monty", "Rene", "Cami", "Winifred",
