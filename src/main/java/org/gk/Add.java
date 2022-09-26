@@ -24,8 +24,8 @@ public class Add extends HttpServlet {
         String value = request.getParameter("value");
 
         myHashMap.put(key, value);
+        request.setAttribute("userName", key);
+        doGet(request, response);
     }
 
-    public void destroy() {
-    }
 }
