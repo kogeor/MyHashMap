@@ -11,7 +11,8 @@ public class Delete extends HttpServlet {
     MyHashMap myHashMap = MyHashMap.getInstance();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("delete.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
