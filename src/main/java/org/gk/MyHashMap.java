@@ -55,7 +55,11 @@ public class MyHashMap<K extends Comparable<? super K>, V> implements Map<K, V> 
 
     private ArrayList<LinkedList<Pair<K, V>>> table;
     private int size;
-
+    private static MyHashMap instance = new MyHashMap();
+    public static MyHashMap getInstance() {
+        if (instance ==null){instance = new MyHashMap();}
+        return instance;
+    }
     public MyHashMap() {
         table = new ArrayList<>();
 
