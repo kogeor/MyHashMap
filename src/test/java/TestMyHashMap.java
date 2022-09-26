@@ -1,16 +1,12 @@
 
 import org.gk.MyHashMap;
 import org.gk.QuickSort;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 public class TestMyHashMap {
-    MyHashMap myHashMap = new MyHashMap();
+ /*   MyHashMap myHashMap = new MyHashMap();
 
 
     @Test
@@ -19,7 +15,7 @@ public class TestMyHashMap {
         myHashMap.put(324, "Second");
         myHashMap.put(2345, "Third");
         myHashMap.put(12320, "AnotherOne");
-        Assertions.assertEquals("{120=First, 12320=AnotherOne, 324=Second, 2345=Third}",myHashMap.toString());
+        Assertions.assertEquals("{120=First, 12320=AnotherOne, 324=Second, 2345=Third}", myHashMap.toString());
     }
 
     @Test
@@ -44,5 +40,5 @@ public class TestMyHashMap {
                 " Demetrice, Ernestine, Faviola, Jamila, Kareen, Leana, Loyce, Milo" +
                 ", Monty, Nelda, Quincy, Rene, Tara, Toccara, Winifred" +
                 "]", java.util.Arrays.toString(array));
-    }
+    }*/
 }
