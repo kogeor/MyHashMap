@@ -1,13 +1,11 @@
 <%@ page import="org.gk.MyHashMap" %>
-<%@ page import="java.util.List" %>
-<%@ page import="java.util.Set" %><%--
-  Created by IntelliJ IDEA.
+<%@ page import="java.io.PrintWriter" %>
+Created by IntelliJ IDEA.
   User: Kogeor
   Date: 26-Sep-22
   Time: 10:29
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -21,11 +19,12 @@
 
     <%
       MyHashMap myHashMap = MyHashMap.getInstance();
-        System.out.println("<ui>");
+      PrintWriter output = response.getWriter();
+        output.println("<ui>");
         for ( Object key : myHashMap.keySet()) {
-          System.out.println("<li>" + key +" test "+ myHashMap.get(key)+"</li>");
+          output.println("<li>" + key +" test "+ myHashMap.get(key)+"</li>");
         }
-        System.out.println("</ui>");
+        output.println("</ui>");
     %>
   </div>
 </div>
