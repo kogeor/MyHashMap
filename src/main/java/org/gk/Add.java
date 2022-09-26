@@ -22,6 +22,7 @@ public class Add extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String key = request.getParameter("key");
         String value = request.getParameter("value");
+
         myHashMap.put(key, value);
     }
 
