@@ -5,26 +5,18 @@
     <title>My Hash Map</title>
 </head>
 <body>
-<h1><%= "Select One!" %>
-</h1>
 <br/>
-<a href="add">Hello Servlet</a>
+<a href="add">Add element to map</a>
 </body>
 <body>
-<h1><%= "Select One!" %>
-</h1>
 <br/>
-<a href="delete">Hello Servlet</a>
+<a href="delete">Delete element from map</a>
 </body><body>
-<h1><%= "Select One!" %>
-</h1>
 <br/>
-<a href="update">Hello Servlet</a>
+<a href="update">Update element</a>
 </body>
 <body>
-<h1><%= "Select One!" %>
-</h1>
 <br/>
-<a href="read">Hello Servlet</a>
+<a href="read">Read Element</a>
 </body>
 </html>
