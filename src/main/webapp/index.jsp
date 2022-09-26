@@ -2,12 +2,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>My Hash Map</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1><%= "Select One!" %>
 </h1>
 <br/>
-<a href="hello">Hello Servlet</a>
+<a href="add">Hello Servlet</a>
+</body>
+<body>
+<h1><%= "Select One!" %>
+</h1>
+<br/>
+<a href="delete">Hello Servlet</a>
+</body><body>
+<h1><%= "Select One!" %>
+</h1>
+<br/>
+<a href="update">Hello Servlet</a>
+</body>
+<body>
+<h1><%= "Select One!" %>
+</h1>
+<br/>
+<a href="read">Hello Servlet</a>
 </body>
 </html>
