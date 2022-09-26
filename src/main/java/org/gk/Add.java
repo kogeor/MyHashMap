@@ -24,7 +24,7 @@ public class Add extends HttpServlet {
         String value = request.getParameter("value");
 
         myHashMap.put(key, value);
-        request.setAttribute("userName", key);
+        request.setAttribute("key", key);
         doGet(request, response);
     }
 
