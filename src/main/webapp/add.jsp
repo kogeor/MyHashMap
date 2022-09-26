@@ -26,6 +26,6 @@
 </body>
 <body>
 <br/>
-<a href="index">Return</a>
+<a href="/">Return</a>
 </body>
 </html>
