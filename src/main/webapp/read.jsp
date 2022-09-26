@@ -11,24 +11,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>Users</title>
+  <title>Keys-Values</title>
 </head>
 
 <body>
-<div>
-  <h1>Super app!</h1>
-</div>
 
 <div>
   <div>
-    <div>
-      <h2>Users</h2>
-    </div>
+
     <%
       MyHashMap myHashMap = MyHashMap.getInstance();
         System.out.println("<ui>");
         for ( Object key : myHashMap.keySet()) {
-          System.out.println("<li>" + key.toString() +"  "+ myHashMap.get(key)+"</li>");
+          System.out.println("<li>" + key +" test "+ myHashMap.get(key)+"</li>");
         }
         System.out.println("</ui>");
     %>
