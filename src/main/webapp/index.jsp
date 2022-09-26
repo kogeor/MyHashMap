@@ -13,10 +13,6 @@
 <a href="delete">Delete element from map</a>
 </body><body>
 <br/>
-<a href="update">Update element</a>
-</body>
-<body>
-<br/>
 <a href="read">Read Element</a>
 </body>
 </html>
