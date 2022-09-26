@@ -1,4 +1,6 @@
-<%@ page import="org.gk.MyHashMap" %><%--
+<%@ page import="org.gk.MyHashMap" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Set" %><%--
   Created by IntelliJ IDEA.
   User: Kogeor
   Date: 26-Sep-22
@@ -25,8 +27,8 @@
     <%
       MyHashMap myHashMap = MyHashMap.getInstance();
         System.out.println("<ui>");
-        for (var s : myHashMap.entrySet()) {
-          System.out.println("<li>" + s.toString() + "</li>");
+        for ( Object key : myHashMap.keySet()) {
+          System.out.println("<li>" + key.toString() +"  "+ myHashMap.get(key)+"</li>");
         }
         System.out.println("</ui>");
     %>
